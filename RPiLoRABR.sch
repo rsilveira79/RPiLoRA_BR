@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1.27" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="mm"/>
+<grid distance="1.27" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -4990,7 +4990,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <part name="RPI1" library="microbuilder" deviceset="RASPBERRYPI_BPLUS" device="_HATNOSLOTS"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="U2" library="mike-temp" deviceset="TSL2561" device="FN" value="TSL2561FN"/>
+<part name="U2" library="mike-temp" deviceset="TSL2561" device="FN" value="TSL2561"/>
 <part name="SJ1" library="mike-temp" deviceset="SOLDERJUMPER_2WAY" device="PASTE1&amp;2&amp;3"/>
 <part name="SJ2" library="mike-temp" deviceset="SOLDERJUMPER_2WAY" device="S"/>
 <part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="10K"/>
@@ -5002,7 +5002,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="U1" library="microbuilder" deviceset="ADC_ADS1015" device="" value="ADS1015IDGST"/>
+<part name="U1" library="microbuilder" deviceset="ADC_ADS1015" device="" value="ADS1015"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="10K"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="10K"/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0603" value="10K"/>
@@ -5034,6 +5034,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <part name="P+12" library="_c2h" deviceset="3V3" device=""/>
 <part name="P+13" library="_c2h" deviceset="3V3" device=""/>
 <part name="P+14" library="_c2h" deviceset="3V3" device=""/>
+<part name="P+15" library="_c2h" deviceset="3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5128,6 +5129,7 @@ DO NOT SHORT BOTH SIDES</text>
 <instance part="P+12" gate="3V3" x="195.58" y="144.78"/>
 <instance part="P+13" gate="3V3" x="205.74" y="144.78"/>
 <instance part="P+14" gate="3V3" x="218.44" y="144.78"/>
+<instance part="P+15" gate="3V3" x="-10.16" y="86.36"/>
 </instances>
 <busses>
 </busses>
@@ -5328,27 +5330,6 @@ DO NOT SHORT BOTH SIDES</text>
 <pinref part="RPI1" gate="G$1" pin="SPI_SCLK"/>
 <wire x1="-7.62" y1="55.88" x2="5.08" y2="55.88" width="0.1524" layer="91"/>
 <label x="-7.62" y="55.88" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="3.3V" class="0">
-<segment>
-<pinref part="P+1" gate="3V3" pin="3V3"/>
-<pinref part="U4" gate="G$1" pin="VCC"/>
-<wire x1="104.14" y1="88.9" x2="104.14" y2="85.09" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="85.09" x2="104.14" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="85.09" x2="104.14" y2="85.09" width="0.1524" layer="91"/>
-<junction x="104.14" y="85.09"/>
-</segment>
-<segment>
-<pinref part="RPI1" gate="G$1" pin="3.3V"/>
-<wire x1="5.08" y1="83.82" x2="2.54" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="83.82" x2="-7.62" y2="83.82" width="0.1524" layer="91"/>
-<junction x="2.54" y="83.82"/>
-<pinref part="RPI1" gate="G$1" pin="3.3V@1"/>
-<wire x1="2.54" y1="63.5" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="63.5" x2="2.54" y2="83.82" width="0.1524" layer="91"/>
-<label x="-7.62" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RFMIO_5" class="0">
@@ -5594,6 +5575,27 @@ DO NOT SHORT BOTH SIDES</text>
 <pinref part="P+11" gate="3V3" pin="3V3"/>
 <pinref part="SJ1" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="157.48" x2="139.7" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RPI1" gate="G$1" pin="3.3V"/>
+<wire x1="5.08" y1="83.82" x2="2.54" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="83.82" x2="-10.16" y2="83.82" width="0.1524" layer="91"/>
+<junction x="2.54" y="83.82"/>
+<pinref part="RPI1" gate="G$1" pin="3.3V@1"/>
+<wire x1="2.54" y1="63.5" x2="5.08" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="63.5" x2="2.54" y2="83.82" width="0.1524" layer="91"/>
+<label x="-7.62" y="83.82" size="1.778" layer="95"/>
+<pinref part="P+15" gate="3V3" pin="3V3"/>
+<wire x1="-10.16" y1="83.82" x2="-10.16" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U4" gate="G$1" pin="VCC"/>
+<pinref part="P+1" gate="3V3" pin="3V3"/>
+<wire x1="104.14" y1="78.74" x2="104.14" y2="85.09" width="0.1524" layer="91"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="85.09" x2="104.14" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="85.09" x2="106.68" y2="85.09" width="0.1524" layer="91"/>
+<junction x="104.14" y="85.09"/>
 </segment>
 </net>
 <net name="AIN0" class="0">
